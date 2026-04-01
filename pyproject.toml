@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "productive-mcp"
+version = "0.1.0"
+description = "Productive stdio MCP server and CLI for task workflows."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27.0",
+  "mcp>=1.2.0",
+  "typer>=0.12.0",
+  "rich>=13.0.0",
+  "markdownify>=0.13.0",
+]
+
+[project.scripts]
+productive-mcp = "productive_mcp.cli:main"
+productive-mcp-server = "productive_mcp.server:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
